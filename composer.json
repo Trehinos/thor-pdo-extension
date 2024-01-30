@@ -1,7 +1,7 @@
 {
   "name": "trehinos/thor-pdo-extension",
   "type": "library",
-  "description": "Une extension de PDO",
+  "description": "Une extension à PDO",
   "minimum-stability": "stable",
   "license": "MIT",
   "autoload": {
@@ -20,12 +20,6 @@
       "email": "trehinos@gmail.com"
     }
   ],
-  "repositories": {
-    "trehinos/thor-common": {
-      "type": "vcs",
-      "url": "https://asgard.trehinos.eu/thor2/thor-common"
-    }
-  },
   "require": {
     "php": "^8.2",
     "trehinos/thor-common": "dev-master"
