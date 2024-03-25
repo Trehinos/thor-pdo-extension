@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f6cd3df3ada3b460f9de496c0fdbac9",
+    "content-hash": "ec7673cf7f9f9b027d3007f133e6fd24",
     "packages": [
         {
             "name": "symfony/polyfill-ctype",
@@ -325,7 +325,7 @@
             "source": {
                 "type": "git",
                 "url": "https://asgard.trehinos.eu/thor2/thor-common",
-                "reference": "52521b2e900f29f6d27c07abace8178f413cdc0e"
+                "reference": "95b4cca8e1033f788da690b3b3fcd55e06f18d21"
             },
             "require": {
                 "ext-mbstring": "*",
@@ -356,7 +356,7 @@
                 }
             ],
             "description": "Le coeur du framework Thor",
-            "time": "2024-03-25T09:08:41+00:00"
+            "time": "2024-03-25T10:11:53+00:00"
         },
         {
             "name": "trehinos/thor-option",
@@ -2035,7 +2035,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.2"
+        "php": "^8.2",
+        "ext-pdo": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.6.0"

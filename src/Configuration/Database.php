@@ -3,6 +3,7 @@
 namespace Thor\Database\PdoExtension\Configuration;
 
 use Thor\Common\Configuration\Configuration;
+use Thor\Common\Configuration\ConfigurationFromFile;
 
 class Database extends Configuration implements DatabaseConfigurationInterface
 {
@@ -11,10 +12,15 @@ class Database extends Configuration implements DatabaseConfigurationInterface
     {
         if (array_key_exists('case', $configArray)) {
             $configArray['options']['case'] = $configArray['case'];
-            $configArray['case'] = null;
+            $configArray['case']            = null;
             unset($configArray['case']);
         }
         parent::__construct($configArray);
+    }
+
+    public static function loadMultiple(string $path): array
+    {
+        return ConfigurationFromFile::multipleFromFile($path, self::class);
     }
 
     public function getDsn(): string
