@@ -1,9 +1,8 @@
 <?php
 
-namespace Thor\Database\PdoExtension;
+namespace Thor\Database\PdoExtension\Configuration;
 
 use Thor\Common\Configuration\Configuration;
-use Thor\Database\PdoExtension\Configuration\DatabaseConfigurationInterface;
 
 class Database extends Configuration implements DatabaseConfigurationInterface
 {

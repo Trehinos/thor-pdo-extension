@@ -1,6 +1,6 @@
 <?php
 
-namespace Thor\Database\tests;
+namespace Tests;
 
 use PDO;
 use PHPUnit\Framework\TestCase;

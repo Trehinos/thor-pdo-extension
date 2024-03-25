@@ -22,7 +22,8 @@
   ],
   "require": {
     "php": "^8.2",
-    "trehinos/thor-common": "dev-master"
+    "trehinos/thor-common": "dev-master",
+    "ext-pdo": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "10.*"
