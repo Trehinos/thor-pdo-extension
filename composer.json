@@ -22,7 +22,7 @@
   ],
   "require": {
     "php": "^8.2",
-    "trehinos/thor-common": "dev-master",
+    "trehinos/thor-common": "@stable",
     "ext-pdo": "*"
   },
   "require-dev": {
