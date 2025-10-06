@@ -5,9 +5,29 @@ namespace Thor\Database\PdoExtension;
 use JetBrains\PhpStorm\Pure;
 
 /**
- * For class CrudHelper : SQL CRUD operation requester for PdoRows.
+ * Helper for performing SQL CRUD operations on associative arrays (rows).
  *
- * @package Thor\Database\Sql
+ * This class builds simple INSERT/SELECT/UPDATE/DELETE statements and executes them
+ * via a Requester (PDO wrapper). It is intentionally minimal and unopinionated.
+ *
+ * Example
+ * ```
+ * $handler = new Handler('sqlite::memory:');
+ * $req     = new Requester($handler);
+ * $crud    = new ArrayCrud('users', ['id'], $req);
+ *
+ * // Create
+ * $crud->createOne(['id' => 1, 'name' => 'Alice']);
+ *
+ * // Read one by primary key
+ * $user = $crud->readOne(['id' => 1]);
+ *
+ * // Update with Criteria
+ * $crud->update(['name' => 'Alice Cooper'], new Criteria(['id' => 1]));
+ *
+ * // Delete
+ * $crud->delete(new Criteria(['id' => 1]));
+ * ```
  */
 final class ArrayCrud
 {

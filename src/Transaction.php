@@ -3,16 +3,19 @@
 namespace Thor\Database\PdoExtension;
 
 /**
- * A PdoRequester with transactions. The queries are only executed at this object destruction or when
- * commit() is explicitly called.
+ * Requester wrapper that begins a transaction and commits/rolls back automatically.
  *
- * If $autoTransaction is set to false, it will not perform the queries at destruction but only with commit().
+ * If $autoTransaction is true (default), a transaction is started on construction (if none is active)
+ * and committed on destruction; if false, no auto-commit occurs and an active transaction will be rolled back
+ * on destruction unless you call commit() explicitly.
  *
- * The DBMS MUST be compatible with transactions.
- *
- * @package Thor/Database/PdoExtension
- * @copyright (2021) Sébastien Geldreich
- * @license MIT
+ * Example
+ * ```
+ * $t = new Transaction(new Handler('sqlite::memory:'));
+ * $t->execute('CREATE TABLE t (id INTEGER PRIMARY KEY, name TEXT)');
+ * $t->execute('INSERT INTO t (name) VALUES (?)', ['Alice']);
+ * // committed automatically when $t is destroyed
+ * ```
  */
 final class Transaction extends Requester
 {

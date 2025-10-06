@@ -6,15 +6,18 @@ use PDO;
 use PDOException;
 
 /**
- * This class offer a PDO wrapper, to differ the database connection from the object instantiation.
+ * Lightweight PDO wrapper that defers the actual DB connection until first use.
  *
- * Use PdoHandler->getPdo() to get the PDO object and connect to the database.
+ * Call getPdo() to obtain a configured PDO instance. Connection is established on demand.
  *
- * @see              PDO
+ * Example
+ * ```
+ * $handler = new Handler('sqlite::memory:');
+ * $pdo = $handler->getPdo(); // connects now
+ * $pdo->exec('CREATE TABLE t (id INTEGER PRIMARY KEY, name TEXT)');
+ * ```
  *
- * @package          Thor/Database/PdoExtension
- * @copyright (2021) Sébastien Geldreich
- * @license          MIT
+ * @see PDO
  */
 final class Handler
 {

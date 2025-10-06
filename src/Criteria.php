@@ -5,11 +5,24 @@ namespace Thor\Database\PdoExtension;
 use JetBrains\PhpStorm\ArrayShape;
 
 /**
- * Describes a where SQL statement.
+ * Describes a SQL WHERE clause.
  *
- * @package          Thor/Database/PdoTable
- * @copyright (2021) Sébastien Geldreich
- * @license          MIT
+ * This helper turns an associative array into a parameterized SQL expression and a flat parameter list.
+ * It supports nesting with AND/OR, IN lists, NULL/NOT NULL checks, and simple comparison and LIKE operators.
+ *
+ * Example
+ * ```
+ * // WHERE ("company" = ? AND ("employee_id" IN (?, ?, ?) OR manager_id = ?))
+ * $c = new Criteria([
+ *     'company' => 'Xerox',
+ *     'OR' => [
+ *         'employee_id' => [1, 14, 999],
+ *         'manager_id'  => 4,
+ *     ],
+ * ]);
+ * $sql    = Criteria::getWhere($c);     // "WHERE company = ? AND (\"employee_id\" IN (?,?,?) OR manager_id = ?)"
+ * $params = $c->getParams();            // ['Xerox', 1, 14, 999, 4]
+ * ```
  */
 final class Criteria
 {

@@ -7,13 +7,19 @@ use Thor\Common\Types\Collection\Collection;
 use Thor\Database\PdoExtension\Configuration\DatabaseConfigurationInterface;
 
 /**
- * Holds a collection of PdoHandlers.
+ * Holds a named collection of Handlers (PDO connections).
+ *
+ * Useful when an application manages multiple databases. Provides factory to create from configuration.
+ *
+ * Example
+ * ```
+ * $pdos = (new PdoCollection())
+ *     ->add('default', new Handler('sqlite::memory:'))
+ *     ->add('analytics', new Handler('sqlite::memory:'));
+ * $pdo = $pdos->get('default')?->getPdo();
+ * ```
  *
  * @see Handler
- *
- * @package Thor/Database/PdoExtension
- * @copyright (2021) Sébastien Geldreich
- * @license MIT
  */
 final class PdoCollection extends Collection
 {

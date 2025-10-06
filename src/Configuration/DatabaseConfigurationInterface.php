@@ -2,6 +2,11 @@
 
 namespace Thor\Database\PdoExtension\Configuration;
 
+/**
+ * Minimal interface for database connection configuration.
+ *
+// * Implementations should provide DSN, optional user/password, and arbitrary driver options.
+ */
 interface DatabaseConfigurationInterface
 {
 

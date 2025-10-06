@@ -6,11 +6,18 @@ use PDOStatement;
 use PDOException;
 
 /**
- * Defines a class which performs SQL queries on a PDO connection wrapped in a PdoHandler.
+ * Performs SQL queries on a PDO connection managed by a Handler.
  *
- * @package Thor/Database/PdoExtension
- * @copyright (2021) Sébastien Geldreich
- * @license MIT
+ * Provides simple helpers to execute statements and fetch results with positional parameters.
+ *
+ * Example
+ * ```
+ * $handler = new Handler('sqlite::memory:');
+ * $req     = new Requester($handler);
+ * $req->execute('CREATE TABLE t (id INTEGER PRIMARY KEY, name TEXT)');
+ * $req->execute('INSERT INTO t (name) VALUES (?)', ['Alice']);
+ * $row = $req->request('SELECT * FROM t WHERE name = ?', ['Alice'])->fetch();
+ * ```
  */
 class Requester
 {
