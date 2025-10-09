@@ -1,7 +1,7 @@
 {
   "name": "trehinos/thor-pdo-extension",
   "type": "library",
-  "description": "Une extension à PDO",
+  "description": "A PDO extension for Thor",
   "minimum-stability": "stable",
   "license": "MIT",
   "autoload": {
